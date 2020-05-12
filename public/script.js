@@ -76,7 +76,7 @@ function newPost() {
     post = { title, descricao }
 
    // let url_newpost = "http://192.168.1.24:4000/api/post";
-   let url = "https://rest-api-mural.herokuapp.com/api/post"
+   let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
     let options = {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
@@ -98,9 +98,9 @@ function newPost() {
  */
 function deletePost(postID) {
     //let postID = "5eb42a26f2c41e5b0f536428";
-    let url = "https://rest-api-mural.herokuapp.com/api/delete"
+    
 
-    fetch(url+postID, { method: "DELETE" }).then(res => {
+    fetch("https://rest-api-mural.herokuapp.com/api/delete/"+postID, { method: "DELETE" }).then(res => {
 
         getAllPosts();
 
