@@ -27,7 +27,7 @@ db.connect(db_mongoose, { useNewUrlParser: true }, () => {
     console.log("DB Connected...")
 })
 
-const port = 3000;
+const PORT = process.env.PORT;
 
 // Listening to the Server...
 app.listen(port, () => {
