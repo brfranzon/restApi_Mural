@@ -11,19 +11,22 @@ function getAllPosts() {
             let postAll = "";
 
             for (let i = 0; i < data.length; i++) {
-
-                let post = `<div id = ${data[i]._id} class="card mb-5">
+                let post =
+                 `<div id = ${data[i]._id} class="card mb-5 border border-primary">
 
                    <div class="card-header bg-info">
                      <h5 class="card-title">${data[i].title}</h5>
                    </div>
 
                     <div class="card-body">
-                     <div class="card-text mb-4"> ${data[i].descricao}
+                     <div class="card-text mb-4"> ${data[i].descricao}</div>
                      </div>
-                     </div>
-                     <button class="bg-danger" id = deletePost${data[i]._id}> Delete</button>
 
+                     <div class="btn float-right" role="group" aria-label="Basic example">
+                     <button class="bg-sucess" id = updatePost${data[i]._id}> Update</button>
+                     <button class="bg-danger" id = deletePost${data[i]._id}> Delete</button>
+                     </div>
+                  
                  </div>`
 
                 postAll = postAll + post;
@@ -35,15 +38,14 @@ function getAllPosts() {
 }
 
 
-
 document.body.addEventListener('click', function (event) {
+    
     let url = "http://192.168.1.24:4000/api/get"
     fetch(url).
         then(res => {
             return res.json();
         }).then(data => {
             for (i = 0; i < data.length; i++) {
-
                 if (event.srcElement.id == `deletePost${data[i]._id}`) {
                     alert("Quer mesmo deletar este Post?")
                     document.getElementById(`${data[i]._id}`).remove();
@@ -52,24 +54,12 @@ document.body.addEventListener('click', function (event) {
             }
         })
 
+
     if (event.srcElement.id == "sendPost") {
         alert("Quer mesmo inserir o Post?")
         newPost();
     }
 });
-
-
-/**
- * Delete a post
- */
-function deletePost(postID) {
-    //let postID = "5eb42a26f2c41e5b0f536428";
-    fetch("http://192.168.1.24:4000/api/delete/" + postID, { method: "DELETE" }).then(res => {
-
-        getAllPosts();
-
-    })
-}
 
 
 /** 
@@ -97,6 +87,22 @@ function newPost() {
     })
 
 }
+
+
+
+
+/**
+ * Delete a post
+ */
+function deletePost(postID) {
+    //let postID = "5eb42a26f2c41e5b0f536428";
+    fetch("http://192.168.1.24:4000/api/delete/" + postID, { method: "DELETE" }).then(res => {
+
+        getAllPosts();
+
+    })
+}
+
 
 
 
