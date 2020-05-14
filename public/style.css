@@ -1,3 +1,23 @@
 html{
     scroll-behavior: smooth;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 30px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(red, yellow, blue);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+
+  }
