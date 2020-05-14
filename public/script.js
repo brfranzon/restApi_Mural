@@ -4,7 +4,7 @@
 getAllPosts();
 function getAllPosts() {
     //let url = "http://192.168.1.24:4000/api/get"
-    let url = "https://rest-api-mural.herokuapp.com/api/get"
+        let url = "https://rest-api-mural.herokuapp.com/api/get"
     fetch(url).
         then(res => {
             return res.json();
@@ -13,23 +13,25 @@ function getAllPosts() {
 
             for (let i = 0; i < data.length; i++) {
                 let post =
-                 `<div id = ${data[i]._id} class="card mb-5 border border-primary">
+                    `<div id = ${data[i]._id} class="card border-dark mb-5">
 
                    <div class="card-header bg-info">
-                     <h5 class="card-title">${data[i].title}</h5>
+                     <h5 class="card-title"><span class = "">Title</span>: ${data[i].title}</h5>
                    </div>
 
                     <div class="card-body">
-                     <div class="card-text mb-4"> ${data[i].descricao}</div>
+                     <div class="card-text mb-4"> 
+                     <p class = "container">${data[i].descricao}</p></div>
                      </div>
 
                      <div class="btn float-right" role="group" aria-label="Basic example">
-                     <button class="bg-sucess" id = updatePost${data[i]._id}> Update</button>
-                     <button class="bg-danger" id = deletePost${data[i]._id}> Delete</button>
+                     <button class="btn border  bg-white text-success" id = updatePost${data[i]._id}> Update</button>
+                     <button class="btn text-white bg-danger" id = deletePost${data[i]._id}> Delete</button>
                      </div>
                   
                  </div>`
 
+                
                 postAll = postAll + post;
             }
 
@@ -40,9 +42,9 @@ function getAllPosts() {
 
 
 document.body.addEventListener('click', function (event) {
-    
+
     //let url = "http://192.168.1.24:4000/api/get"
-    let url = "https://rest-api-mural.herokuapp.com/api/get"
+     let url = "https://rest-api-mural.herokuapp.com/api/get"
     fetch(url).
         then(res => {
             return res.json();
@@ -61,6 +63,9 @@ document.body.addEventListener('click', function (event) {
         alert("Quer mesmo inserir o Post?")
         newPost();
     }
+
+
+
 });
 
 
@@ -75,8 +80,8 @@ function newPost() {
 
     post = { title, descricao }
 
-   // let url_newpost = "http://192.168.1.24:4000/api/post";
-   let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
+    //let url_newpost = "http://192.168.1.24:4000/api/post";
+       let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
     let options = {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
@@ -99,8 +104,9 @@ function newPost() {
 function deletePost(postID) {
     //let postID = "5eb42a26f2c41e5b0f536428";
     
-
-    fetch("https://rest-api-mural.herokuapp.com/api/delete/"+postID, { method: "DELETE" }).then(res => {
+    //https://rest-api-mural.herokuapp.com/api/delete/
+    //http://192.168.1.24:4000/api/delete/
+    fetch("https://rest-api-mural.herokuapp.com/api/delete/" + postID, { method: "DELETE" }).then(res => {
 
         getAllPosts();
 

@@ -1,9 +1,3 @@
-.marginPost{
-    margin-bottom: 30px;
-    border-bottom: 2px solid black;
-}
-
-.size{
-   display: flex;
-   justify-content: right;
+html{
+    scroll-behavior: smooth;
 }

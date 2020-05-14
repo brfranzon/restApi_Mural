@@ -7,28 +7,58 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <title>Rest API</title>
 
 </head>
 
 <body>
+    <nav class="sticky-top bg-warning navbar navbar-dark primary-color p-5">
+        <a class="navbar-brand" href="#" height="30" class="d-inline-block align-top"> NODE.JS
+        </a>
+        <a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+
+        <a class="navbar-brand" href="#" height="30" class="d-inline-block align-top"> MONGODB
+        </a>
+
+        <a class="navbar-brand" href="#" height="30" class="d-inline-block align-top"> JAVASCRIPT
+        </a>
+
+        <a class="navbar-brand" href="#" height="30" class="d-inline-block align-top"> BOOTSTRAP
+        </a>
+
+    </nav>
 
     <div class="container">
-        <h3>Write your Comments</h3>
+        <h1 class="py-5"> <span class="text-muted">Screiben Sie bitte einen schönen</span> <span class="display-4">
+                Kommentar</span> </h1>
 
         <div>
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" id="description" placeholder="Description">
+            <div class="form-group col-6">
+                <label>Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Schreiben Sie den Title" columns="2">
+            </div>
 
-            <button class="bg-warning" id="sendPost"> Send Comment</button>
+            <div class="form-group col-12">
+                <label> Description</label>
+                <textarea id="description" class="form-control" rows="4"
+                    placeholder="Schreiben Sie den Title"></textarea>
+            </div>
+
+
+            <a href="#footer">
+                <div class="form-group col-4">
+                    <button class="btn btn-success text-white" id="sendPost"> Send Comment</button>
+            </a>
         </div>
+    </div>
 
-        <h2 class="mt-5"> Mural</h2>
-        <hr>
+    <h2 class="mt-5"> Mural unserer Schule</h2>
+    <hr>
 
 
-        <div  id="posts">
-        </div>
+    <div id="posts" class="container">
+    </div>
 
 
 
@@ -36,7 +66,16 @@
 
 
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
+<hr>
+<footer id="footer"> </footer>
 
 </html>
