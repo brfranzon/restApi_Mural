@@ -3,17 +3,18 @@
 */
 getAllPosts();
 function getAllPosts() {
-    //let url = "http://192.168.1.24:4000/api/get"
-        let url = "https://rest-api-mural.herokuapp.com/api/get"
+    let url = "http://192.168.1.24:4000/api/get"
+    //let url = "https://rest-api-mural.herokuapp.com/api/get"
     fetch(url).
         then(res => {
             return res.json();
         }).then(data => {
             let postAll = "";
+            
 
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data.length; i++) {   
                 let post =
-                    `<div id = ${data[i]._id} class="card border-dark mb-5">
+                    `<div id = ${data[i]._id} class="card border-dark bg-white mb-5 shadow-lg  rounded">
 
                    <div class="card-header bg-info">
                      <h5 class="card-title"><span class = "">Title</span>: ${data[i].title}</h5>
@@ -31,7 +32,7 @@ function getAllPosts() {
                   
                  </div>`
 
-                
+
                 postAll = postAll + post;
             }
 
@@ -43,8 +44,8 @@ function getAllPosts() {
 
 document.body.addEventListener('click', function (event) {
 
-    //let url = "http://192.168.1.24:4000/api/get"
-     let url = "https://rest-api-mural.herokuapp.com/api/get"
+    let url = "http://192.168.1.24:4000/api/get"
+    // let url = "https://rest-api-mural.herokuapp.com/api/get"
     fetch(url).
         then(res => {
             return res.json();
@@ -80,8 +81,8 @@ function newPost() {
 
     post = { title, descricao }
 
-    //let url_newpost = "http://192.168.1.24:4000/api/post";
-       let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
+    let url_newpost = "http://192.168.1.24:4000/api/post";
+    //   let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
     let options = {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
@@ -103,10 +104,10 @@ function newPost() {
  */
 function deletePost(postID) {
     //let postID = "5eb42a26f2c41e5b0f536428";
-    
+
     //https://rest-api-mural.herokuapp.com/api/delete/
     //http://192.168.1.24:4000/api/delete/
-    fetch("https://rest-api-mural.herokuapp.com/api/delete/" + postID, { method: "DELETE" }).then(res => {
+    fetch("http://192.168.1.24:4000/api/delete/" + postID, { method: "DELETE" }).then(res => {
 
         getAllPosts();
 
