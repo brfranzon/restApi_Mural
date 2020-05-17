@@ -14,7 +14,7 @@ function getAllPosts() {
 
             for (let i = 0; i < data.length; i++) {   
                 let post =
-                    `<div id = ${data[i]._id} class="card border-dark bg-white mb-5 shadow-lg  rounded">
+                    `<div id = ${data[i]._id} class="card border-dark bg-white mb-3 p-3 shadow-lg  rounded">
 
                    <div class="card-header bg-info">
                      <h5 class="card-title"><span class = "">Title</span>: ${data[i].title}</h5>
@@ -26,7 +26,6 @@ function getAllPosts() {
                      </div>
 
                      <div class="btn float-right" role="group" aria-label="Basic example">
-                     <button class="btn border  bg-white text-success" id = updatePost${data[i]._id}> Update</button>
                      <button class="btn text-white bg-danger" id = deletePost${data[i]._id}> Delete</button>
                      </div>
                   
@@ -35,16 +34,12 @@ function getAllPosts() {
 
                 postAll = postAll + post;
             }
-
             document.getElementById("posts").innerHTML = postAll;
-
         })
 }
 
-
 document.body.addEventListener('click', function (event) {
-
-    //let url = "http://192.168.1.24:4000/api/get"
+   // let url = "http://192.168.1.24:4000/api/get"
      let url = "https://rest-api-mural.herokuapp.com/api/get"
     fetch(url).
         then(res => {
@@ -52,23 +47,17 @@ document.body.addEventListener('click', function (event) {
         }).then(data => {
             for (i = 0; i < data.length; i++) {
                 if (event.srcElement.id == `deletePost${data[i]._id}`) {
-                    alert("Quer mesmo deletar este Post?")
+               //     alert("Quer mesmo deletar este Post?")
                     document.getElementById(`${data[i]._id}`).remove();
                     deletePost(data[i]._id);
                 };
             }
         })
-
-
     if (event.srcElement.id == "sendPost") {
-        alert("Quer mesmo inserir o Post?")
+   //     alert("Quer mesmo inserir o Post?")
         newPost();
     }
-
-
-
 });
-
 
 /** 
  * 
@@ -80,9 +69,8 @@ function newPost() {
     let descricao = document.getElementById("description").value;
 
     post = { title, descricao }
-
-    //let url_newpost = "http://192.168.1.24:4000/api/post";
-       let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
+    // let url_newpost = "http://192.168.1.24:4000/api/post";
+     let  url_newpost = "https://rest-api-mural.herokuapp.com/api/post"
     let options = {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
@@ -94,17 +82,12 @@ function newPost() {
         document.getElementById("title").value = "";
         document.getElementById("description").value = "";
     })
-
 }
-
-
 
 /**
  * Delete a post
  */
 function deletePost(postID) {
-    //let postID = "5eb42a26f2c41e5b0f536428";
-
     //https://rest-api-mural.herokuapp.com/api/delete/
     //http://192.168.1.24:4000/api/delete/
     fetch("https://rest-api-mural.herokuapp.com/api/delete/" + postID, { method: "DELETE" }).then(res => {
@@ -114,82 +97,3 @@ function deletePost(postID) {
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/** let postAll = "";
- for (let i = 0; i < data.length; i++) {
-
-     let post = `
-<div id = ${data[i]._id} class="content">
-   <div class="card mb-5">
-
-       <div class="card-header bg-info">
-         <h5 class="card-title">${data[i].title}</h5>
-       </div>
-
-
-      <div class="card-body">
-         <div class="card-text mb-4"> ${data[i].descricao}
-         </div>
-
-         <button class="bg-danger" id="deltePost"> Delete</button>
-
-     </div>`
-
-     postAll = postAll + post;
- }
- document.getElementById("content").innerHTML = postAll;
- */
-
-
-/**
- *
- let title = document.createElement("h5");
- title.classList.add("card-title");
- title.innerHTML = data[i].title;
-
- let div_header = document.createElement("div");
- div_header.classList.add("card-header", "bg-info");
-
- div_header.appendChild(title);
-
-
-let card_text = document.createElement("div");
-card_text.classList.add("card-text", "mb-4");
-card_text.innerHTML = data[i].descricao;
-
-let card_body = document.createElement("div");
-card_body.classList.add("card-body");
-
-card_body.appendChild(card_text);
-
-
-let card = document.createElement("div");
-card.classList.add("card", "mb-5");
-
-
-let deleteBtn = document.createElement("button");
-deleteBtn.classList.add("bg-danger");
-deleteBtn.innerHTML = "Delete";
-deleteBtn.id = `btn${data[i]._id}`;
-
-
-
-card.appendChild(div_header);
-card.appendChild(card_body);
-card.appendChild(deleteBtn);
-
-
-document.getElementsByClassName("content")[0].id = `content${data[i]._id}`;
-document.getElementsByClassName("content")[0].appendChild(card);
-*/

@@ -1,7 +1,6 @@
 html{
     scroll-behavior: smooth;
 }
-
 /* width */
 ::-webkit-scrollbar {
     width: 30px;
@@ -21,3 +20,19 @@ html{
   ::-webkit-scrollbar-thumb:hover {
 
   }
+
+  .gradient {
+    background-image:
+      radial-gradient(
+        rgb(234, 204, 246),
+        #ed9df0
+      );
+  }
+
+  .bg-color {
+    background-color: rgb(250, 209, 98);
+}
+
+.columns-bg {
+
+}
