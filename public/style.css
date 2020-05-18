@@ -22,17 +22,20 @@ html{
   }
 
   .gradient {
-    background-image:
-      radial-gradient(
-        rgb(234, 204, 246),
-        #ed9df0
-      );
+   background-color:#364f6b;
   }
 
-  .bg-color {
-    background-color: rgb(250, 209, 98);
+label, .bg-color {
+    color: #fc5185;
 }
 
-.columns-bg {
+label{
+  font-size: 22pt;
+}
+.text{
+ color:  #f0f0f0;
+}
+.bg {
+color: #fc5185;
 
 }
