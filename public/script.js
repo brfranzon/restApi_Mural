@@ -14,7 +14,7 @@ function getAllPosts() {
 
             for (let i = 0; i < data.length; i++) {   
                 let post =
-                    `<div id = ${data[i]._id} class="card rounded">
+                    `<div id = ${data[i]._id} class="card rounded mb-5">
 
                    <div class="card-header bg-info">
                      <h5 class="card-title"><span class = "">Title</span>: ${data[i].title}</h5>
