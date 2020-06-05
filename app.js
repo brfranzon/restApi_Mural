@@ -21,7 +21,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 
 // connect to DB
-let db_mongoose = "mongodb://brfranzon:#Domine1227@cluster0-shard-00-00-c5jti.mongodb.net:27017,cluster0-shard-00-01-c5jti.mongodb.net:27017,cluster0-shard-00-02-c5jti.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
+let db_mongoose = "mongodb://franzon:#Domine@cluster0-shard-00-00-c5jti.mongodb.net:27017,cluster0-shard-00-01-c5jti.mongodb.net:27017,cluster0-shard-00-02-c5jti.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 db.connect(process.env.MONGODB_URI || db_mongoose,
     { useNewUrlParser: true }, () => {
